@@ -36,6 +36,7 @@ variable "endpointscc_databricks" {
   type        = string
   default     = "com.amazonaws.vpce.eu-central-1.vpce-svc-08e5dfca9572c85c4"
 }
+
 variable "endpointrest_databricks" {
   description = "endpoint for workspace Rest API"
   type        = string
