@@ -21,10 +21,10 @@ output "security_group_id" {
 
 output "scc_endpoint" {
   description = "Create Secure cluster connectivity relay endpoint"
-  value = aws_vpc_endpoint.databricks-eu-central-1-workspace-vpce-scc.id
+  value       = aws_vpc_endpoint.databricks-eu-central-1-workspace-vpce-scc.id
 }
 
 output "rest_api_endpoint" {
   description = "Create REST API endpoint"
-  value = aws_vpc_endpoint.databricks-eu-central-1-workspace-vpce-rest.id
+  value       = aws_vpc_endpoint.databricks-eu-central-1-workspace-vpce-rest.id
 }

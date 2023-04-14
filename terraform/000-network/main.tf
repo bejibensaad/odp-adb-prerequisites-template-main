@@ -2,7 +2,7 @@ resource "aws_subnet" "databricksubnet_1" {
   vpc_id            = var.odb_vpcid
   cidr_block        = var.dabricks_subnet1
   availability_zone = var.availabilities_zones[0]
-  tags              = {
+  tags = {
     "Name" = "databricks_subnet_1"
   }
 }
@@ -11,7 +11,7 @@ resource "aws_subnet" "databricksubnet_2" {
   vpc_id            = var.odb_vpcid
   cidr_block        = var.dabricks_subnet2
   availability_zone = var.availabilities_zones[1]
-  tags              = {
+  tags = {
     "Name" = "databricks_subnet_2"
   }
 }
@@ -20,7 +20,7 @@ resource "aws_subnet" "subnet_4private_natgw" {
   vpc_id            = var.odb_vpcid
   cidr_block        = var.nat_subnet
   availability_zone = var.availabilities_zones[2]
-  tags              = {
+  tags = {
     "Name" = "databricks_nat_subnet"
   }
 }
@@ -215,15 +215,15 @@ resource "aws_network_acl_rule" "egress_nacl_alltcp" {
 #------------------vpc endpoint----------------
 
 resource "aws_vpc_endpoint" "databricks-eu-central-1-workspace-vpce-scc" {
-  vpc_id             = var.odb_vpcid
-  service_name       = var.endpointscc_databricks
-  vpc_endpoint_type  = "Interface"
+  vpc_id            = var.odb_vpcid
+  service_name      = var.endpointscc_databricks
+  vpc_endpoint_type = "Interface"
   security_group_ids = [
     aws_security_group.databricks-control-plane.id
   ]
   subnet_ids          = [aws_subnet.databricksubnet_1.id]
   private_dns_enabled = true
-  tags                = {
+  tags = {
     "name" = "odp-scc-endpoint"
   }
 
@@ -239,7 +239,7 @@ resource "aws_vpc_endpoint" "databricks-eu-central-1-workspace-vpce-rest" {
   ]
   subnet_ids          = [aws_subnet.databricksubnet_1.id]
   private_dns_enabled = false
-  tags                = {
+  tags = {
     "name" = "odp-rest-endpoint"
   }
 
